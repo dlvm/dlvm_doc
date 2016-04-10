@@ -17,8 +17,8 @@ be attached to a host. On the host, every two dpvs of the dlv will be
 aggregated to a device mirror target, and all the device mapper mirror
 targets will be aggregated to a device mapper stripe target. The
 finally stripe target can be used as a block device on the host. Below
-image is a simple example.
+image is a simple example:
 
+.. image:: image/basic.png
 
-
-.._LVM https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29
+.. _LVM: https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29
