@@ -29,11 +29,26 @@ Below is the architecture of the dlvm service:
 
 There are 6 components of the dlvm services:
 
-* API Server
-* DB
-* dpv
-* ihost
-* Message Queue
-* Monitor
+* API Server: provide restful api, stateless
+* DB: database, sqlite (only for test propuse), postgresql,
+  mysql/mariadb
+* dpv: storage server, run dlvm_dpv_agent, accept rpc call from api
+  server, export volume to ihost
+* ihost: the host which the dlv can be attached to run
+  dlvm_ihost_agent, accept rpc call from api server
+* Message Queue: rabbitmq or redis
+* Monitor: get information from message queu, e.g. a leg of dlv is
+  failed, trigger a failover job
+
+dpv details:
+
+.. figure:: image/dpv.png
+   :scale: 50%
+
+ihost details:
+
+.. figure:: image/ihost.png
+   :scale: 50%
+
 
 .. _LVM: https://en.wikipedia.org/wiki/Logical_Volume_Manager_%28Linux%29
