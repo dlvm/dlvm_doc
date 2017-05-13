@@ -13,6 +13,12 @@ Contents:
 
    Introduction
 
+   Install
+
+   Tutorial1
+   Tutorial2
+   Tutorial3
+
 
 Indices and tables
 ==================

@@ -40,14 +40,23 @@ There are 6 components of the dlvm services:
 * Monitor: get information from message queu, e.g. a leg of dlv is
   failed, trigger a failover job
 
-dpv details:
-
-.. figure:: image/dpv.png
-   :scale: 50%
-
-ihost details:
+Below picture is the dlv structure when it is attached to an ihost:
 
 .. figure:: image/ihost.png
+   :scale: 50%
+
+The dlv is divided to several groups, a group has several legs,
+every leg is an iscsi device allocated from a dpv. When create a dlv,
+it will have only two groups, one for thin-provision metadata (group 0
+in the above picture), another for the thin-provision data (group 1 in
+the above picture). When the data is not enough, ihost will send a
+message to the message queue, then the monitor program can create an
+extend job to add a new group to the dlv.
+
+
+below picture is the internal strucutre of a leg in dpv:
+
+.. figure:: image/dpv.png
    :scale: 50%
 
 
