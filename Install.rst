@@ -24,7 +24,7 @@ Go to the dlvm_playbook directory, rename the hosts.sample to hosts,
 and configure ssh login credentail depend on the ubuntu system.
 
 Rename the group_vars/all.sample to group_vars/all, and edit it, set
-cross_dpv to false, set dlvm_local_lvm and dlvm_all_in_one to true
+test_mode to true, set dlvm_local_lvm and dlvm_all_in_one to true
 
 Run dlvm_playbook::
 

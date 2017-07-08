@@ -65,7 +65,7 @@ Umount dlv and detach it::
   $ sudo umount /mnt
   $ dlvm dlv detach --dlv_name dlv0 --ihost_name localhost
 
-Delete dlv:
+Delete dlv::
 
   $ dlvm dlv delete --dlv_name dlv0
 
@@ -74,4 +74,4 @@ Remove dpv from dvg, delete dpv/dvg/ihost::
   $ dlvm dvg reduce --dvg_name dvg0 --dpv_name localhost
   $ dlvm dvg delete --dvg_name dvg0
   $ dlvm dpv delete --dpv_name localhost
-  $ dlvm ihost delete --dpv_name localhost
+  $ dlvm ihost delete --ihost_name localhost
