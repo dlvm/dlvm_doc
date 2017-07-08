@@ -39,7 +39,7 @@ Check the current data size::
 We can see, although we create a 3G dlv, the actual size it allocated
 is 1G.
 
-Write 900G data to dlv0::
+Write 900M data to dlv0::
 
   $ sudo dd if=/dev/zero of=/dev/mapper/dlvmfront-dlv0 bs=1M count=900 oflag=direct
 
