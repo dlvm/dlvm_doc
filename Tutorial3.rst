@@ -35,4 +35,10 @@ Then resume the obt (The dlv0 will be roll back to 'detached' status)::
 
 For more infomation about obt, please refer to :doc:`obt`
 
-Clean environment
+Clean environment::
+
+  $ dlvm ihost delete --ihost_name invalid_ihost
+  $ dlvm dlv delete --dlv_name dlv0
+  $ dlvm dvg reduce --dvg_name dvg0 --dpv_name localhost
+  $ dlvm dvg delete --dvg_name dvg0
+  $ dlvm dpv delete --dpv_name localhost
