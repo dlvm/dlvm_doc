@@ -1,4 +1,4 @@
-Tutorial 2 Verify event handling
+Tutorial 2 Event handling
 ================================
 
 Prepare::
