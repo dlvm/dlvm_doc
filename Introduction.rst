@@ -27,18 +27,22 @@ Below is the architecture of the dlvm service:
 .. figure:: image/architecture.png
    :scale: 50%
 
-There are 6 components of the dlvm services:
+There are several components of the dlvm services:
 
-* API Server: provide restful api, stateless
-* DB: database, sqlite (only for test propuse), postgresql,
-  mysql/mariadb
-* dpv: storage server, run dlvm_dpv_agent, accept rpc call from api
-  server, export volume to ihost
-* ihost: the host which the dlv can be attached to run
-  dlvm_ihost_agent, accept rpc call from api server
-* Message Queue: rabbitmq or redis
-* Monitor: get information from message queu, e.g. a leg of dlv is
-  failed, trigger a failover job
+* API Server: provides restful api, such as create volume, attach volume
+  and so on. API Server will only record the request to Database, and
+  send a message to Message Queue, a Worker will get this request and
+  actually work on it
+* Worker: accepts requests from Message Queue, sends rpc to dpv or ihost,
+  updates the status in Database.
+* dpv: storage server, runs dlvm_dpv_agent on it, accepts rpc call from
+  API Server or Worker, creates volume or exports voluem to ihost
+* ihost: the host which the dlv can be attached to, runs
+  dlvm_ihost_agent on it, accepts rpc call from Worker.
+* Monitor: runs celery beat on it, sends periodic tasks to Worker
+* Database: currently only test mariadb, should be any DB supportted
+  by SQLAlchemy
+* Message Queue: rabbitmq or any message queues support by celery
 
 Below picture is the dlv structure when it is attached to an ihost:
 
@@ -46,12 +50,7 @@ Below picture is the dlv structure when it is attached to an ihost:
    :scale: 50%
 
 The dlv is divided to several groups, a group has several legs,
-every leg is an iscsi device allocated from a dpv. When create a dlv,
-it will have only two groups, one for thin-provision metadata (group 0
-in the above picture), another for the thin-provision data (group 1 in
-the above picture). When the data is not enough, ihost will send a
-message to the message queue, then the monitor program can create an
-extend job to add a new group to the dlv.
+every leg is an iscsi device allocated from a dpv.
 
 
 below picture is the internal strucutre of a leg in dpv:
