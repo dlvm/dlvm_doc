@@ -46,7 +46,7 @@ There are several components of the dlvm services:
 
 Below picture is the dlv structure when it is attached to an ihost:
 
-.. figure:: image/ihost.png
+.. figure:: image/aggregate.png
    :scale: 50%
 
 The dlv is divided to several groups, a group has several legs,

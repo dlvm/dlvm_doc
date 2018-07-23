@@ -15,14 +15,6 @@ Contents:
 
    Install
 
-   Tutorial1
-   Tutorial2
-   Tutorial3
-
-   States_conversion
-   obt
-
-
 
 Indices and tables
 ==================
