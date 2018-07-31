@@ -44,7 +44,14 @@ There are several components of the dlvm services:
   by SQLAlchemy
 * Message Queue: rabbitmq or any message queues support by celery
 
-Below picture is the dlv structure when it is attached to an ihost:
+Several dpvs could be exported to an ihost via iscsi:
+
+.. figure:: image/iscsi.png
+   :scale: 50%
+
+Every dpv is a 'leg' of the dlv, all legs would aggregate to
+a dlv. Below picture is the dlv structure when it is attached to an
+ihost:
 
 .. figure:: image/aggregate.png
    :scale: 50%
