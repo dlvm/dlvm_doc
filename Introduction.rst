@@ -1,9 +1,9 @@
 Introduce to DLVM
 =================
 
-DLVM (Distribute Logical Volume) is a distribute storage system,
-intends to be a storage backend for a cloud platform, such as
-openstack cinder.
+`DLVM <https://github.com/dlvm/dlvm>`_ (Distribute Logical Volume)
+is a distribute storage system, intends to be a storage backend for a
+cloud platform, such as openstack cinder.
 
 DLVM features:
 
